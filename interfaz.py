@@ -11,7 +11,7 @@ ventana.geometry("1200x1200")#Pone dimensiones a la ventana raíz ancho x alto
 ventana.resizable(False,False)#condiciona si se puede o no agrandar la ventana con el mouse
 ventana.iconbitmap("./img/escudoESCOM.ico")#agrega una imagen .ico a la ventana.
 
-#creacion fondo 
+#fondo
 background = PhotoImage(file = "./img/fondo1.png")
 canvas1 = Canvas(ventana, width = 1200,height = 1200) 
 canvas1.pack(fill = "both", expand = True)
@@ -25,5 +25,17 @@ titulo=canvas1.create_text( 600, 20, text = "Proyecto Final de la materia de Ins
 #subtitulo
 fontExample1 = tkFont.Font(family="Arial", size=14, weight="bold", slant="italic") #configuracion de la fuente
 subtitulo=canvas1.create_text( 600, 45, text = "Equipo 12",font=fontExample1 )
+
+#tinaco
+tinaco=PhotoImage(file="./img/tinaco.gif")
+imgTinaco=Label(canvas1, image=tinaco).place(x=0,y=100)
+
+#boton llenado
+fontExample2 = tkFont.Font(family="Arial", size=12)
+seLlena=Button(canvas1,text="Llenar el tinaco",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white")#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
+seLlena.config(width="15",height="2")#defino tamaño del botón
+seLlena.place(x=80,y=430)#defino la ubicación del botón
+
+
 
 ventana.mainloop()
