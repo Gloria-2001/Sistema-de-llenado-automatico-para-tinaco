@@ -9,7 +9,7 @@ time.sleep(1)
 
 opc = True
 while(opc):
-    enviar_PIC=input("Inserte el numero para prender o apagar el LED. 69 para encender, 65 para apagar. 66 para salir\n")
+    enviar_PIC=input("Inserte el numero para prender o apagar el LED. E para encender, A para apagar. S para salir\n")
     if(enviar_PIC != 'S'):
         puerto.write(enviar_PIC.encode())
         time.sleep(1)
