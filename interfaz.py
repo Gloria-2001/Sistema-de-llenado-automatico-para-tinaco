@@ -26,16 +26,57 @@ titulo=canvas1.create_text( 600, 20, text = "Proyecto Final de la materia de Ins
 fontExample1 = tkFont.Font(family="Arial", size=14, weight="bold", slant="italic") #configuracion de la fuente
 subtitulo=canvas1.create_text( 600, 45, text = "Equipo 12",font=fontExample1 )
 
+fontExample2 = tkFont.Font(family="Arial", size=12)
+
 #tinaco
 tinaco=PhotoImage(file="./img/tinaco.gif")
-imgTinaco=Label(canvas1, image=tinaco).place(x=0,y=100)
+tinacoLlenandose=PhotoImage(file="./img/tinacoLlenandose.gif")
+tinacoLleno=PhotoImage(file="./img/tinacoLleno.gif")
 
+Label(canvas1, image=tinaco, bg='white').place(x=0,y=100)
+
+def llenandose():
+    Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
+    llenando=Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+
+def detener():
+    Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
+    Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+
+Label(canvas1, text="  Faltan x metros para llenarse  ", font=fontExample2, bg="#F781F3").place(x=40,y=530)    
 #boton llenado
-fontExample2 = tkFont.Font(family="Arial", size=12)
-seLlena=Button(canvas1,text="Llenar el tinaco",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white")#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
+seLlena=Button(canvas1,text="Llenar el tinaco",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white", command=llenandose)#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
 seLlena.config(width="15",height="2")#defino tamaño del botón
-seLlena.place(x=80,y=430)#defino la ubicación del botón
+seLlena.place(x=0,y=430)#defino la ubicación del botón
 
+#boton lleno
+parar=Button(canvas1,text="Detener llenado",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white", command=detener)#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
+parar.config(width="15",height="2")#defino tamaño del botón
+parar.place(x=150,y=430)#defino la ubicación del botón
+
+#--------------------------------------------------------
+
+#temperatura 
+termometro=PhotoImage(file="./img/termometro.gif")
+Label(canvas1, image=termometro, bg='white').place(x=400,y=100)
+fontExample3 = tkFont.Font(family="Arial", size=28, weight="bold") 
+
+Label(canvas1,text="La temperatura es de: ", font=fontExample2, bg='white').place(x=545,y=100)
+Label(canvas1,text="X °C", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=590,y=125)
+
+#--------------------------------------------------------
+
+#luminosidad
+foco=PhotoImage(file="./img/foco.gif")
+Label(canvas1, image=foco, bg='white').place(x=750,y=100)
+
+Label(canvas1,text="La luminosidad es del: ", font=fontExample2, bg='white').place(x=1000,y=100)
+Label(canvas1,text="X %", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125)
+
+#--------------------------------------------------------
+
+#integrantes
+Label(canvas1,text="Integrantes:\nGonzález Mora Erika Giselle\nHernández Rodríguez Armando Giovanni\nOlivares Ménez Gloria Oliva", font=fontExample2, bg='white').place(x=905,y=620)
 
 
 ventana.mainloop()
