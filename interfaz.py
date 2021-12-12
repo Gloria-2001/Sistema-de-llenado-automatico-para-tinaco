@@ -4,38 +4,108 @@ from tkinter import * #importamos todos los métodos del paquete Tkinter para in
 import tkinter.font as tkFont
 from tkinter import ttk
 
-#creacion ventana
+#creacion ventana principal
 ventana=Tk()
-ventana.title('Proyecto')
+ventana.title('Portada')
 ventana.geometry("1200x1200")#Pone dimensiones a la ventana raíz ancho x alto
 ventana.resizable(False,False)#condiciona si se puede o no agrandar la ventana con el mouse
 ventana.iconbitmap("./img/escudoESCOM.ico")#agrega una imagen .ico a la ventana.
 
-#fondo
-background = PhotoImage(file = "./img/fondo1.png")
-canvas1 = Canvas(ventana, width = 1200,height = 1200) 
-canvas1.pack(fill = "both", expand = True)
-# Desplegar imagen
-canvas1.create_image( 0, 0, image = background, anchor = "nw")
+#fondo portada 
+background0 = PhotoImage(file = "./img/fondo0.gif")
+canvas0 = Canvas(ventana,width = 1200,height = 1200)
+canvas0.pack(fill = "both", expand = True)
+canvas0.create_image( 0, 0, image = background0, anchor = "nw")
 
-#titulo
-fontExample0 = tkFont.Font(family="Arial", size=16, weight="bold") #configuracion de la fuente
-titulo=canvas1.create_text( 600, 20, text = "Proyecto Final de la materia de Instrumentación",font=fontExample0)
+#escudos 
+ipn=PhotoImage(file="./img/ipn.gif")
+escom=PhotoImage(file="./img/escom.gif")
 
-#subtitulo
-fontExample1 = tkFont.Font(family="Arial", size=14, weight="bold", slant="italic") #configuracion de la fuente
-subtitulo=canvas1.create_text( 600, 45, text = "Equipo 12",font=fontExample1 )
+Label(canvas0, image=ipn, bg='white').place(x=0,y=0)
+Label(canvas0, image=escom, bg='white').place(x=1050,y=0)
 
-#tinaco
+#encabezados IPN y ESCOM
+fontPrincipal0 = tkFont.Font(family="Delight Candles", size=20)
+canvas0.create_text(600, 20, text = "Instituto Politécnico Nacional",font=fontPrincipal0)
+canvas0.create_text(600, 80, text = "Escuela Superior de Cómputo",font=fontPrincipal0)
+
+#equipo
+fontPrincipal1 = tkFont.Font(family="Delight Candles", size=18)
+canvas0.create_text(300, 230, text = "Equipo 12:\nGonzález Mora Erika Giselle\nHernández Rodríguez Armando Giovanni\nOlivares Ménez Gloria Oliva",font=fontPrincipal1)
+
+#otros datos 
+canvas0.create_text(950, 230, text ="Instrumentación\nProyecto Final\nProfra. Rocha Bernabe Rosario\n3CV13",font=fontPrincipal1)
+
+#img nueva ventana
+background = PhotoImage(file = "./img/fondo1.gif")
 tinaco=PhotoImage(file="./img/tinaco.gif")
-imgTinaco=Label(canvas1, image=tinaco).place(x=0,y=100)
+tinacoLlenandose=PhotoImage(file="./img/tinacoLlenandose.gif")
+tinacoLleno=PhotoImage(file="./img/tinacoLleno.gif")
+termometro=PhotoImage(file="./img/termometro.gif")
+foco=PhotoImage(file="./img/foco.gif")
 
-#boton llenado
-fontExample2 = tkFont.Font(family="Arial", size=12)
-seLlena=Button(canvas1,text="Llenar el tinaco",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white")#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
-seLlena.config(width="15",height="2")#defino tamaño del botón
-seLlena.place(x=80,y=430)#defino la ubicación del botón
+#funcion para crear nueva ventana
+def nuevaVentana():
+    newWindow=Toplevel(ventana)
+    newWindow.title('Proyecto')
+    newWindow.geometry("1200x1200")#Pone dimensiones a la ventana raíz ancho x alto
+    newWindow.resizable(False,False)#condiciona si se puede o no agrandar la ventana con el mouse
+    newWindow.iconbitmap("./img/escudoESCOM.ico")#agrega una imagen .ico a la ventana.
+    #fondo
+    canvas1 = Canvas(newWindow, width = 1200,height = 1200) 
+    canvas1.create_image( 0, 0, image = background, anchor = "nw")
+    canvas1.pack()
 
+    #titulo
+    fontExample0 = tkFont.Font(family="Arial", size=16, weight="bold") #configuracion de la fuente
+    titulo=canvas1.create_text( 600, 20, text = "Proyecto Final de la materia de Instrumentación",font=fontExample0)
+    #subtitulo
+    fontExample1 = tkFont.Font(family="Arial", size=14, weight="bold", slant="italic") #configuracion de la fuente
+    subtitulo=canvas1.create_text( 600, 45, text = "Equipo 12",font=fontExample1 )
 
+    fontExample2 = tkFont.Font(family="Arial", size=12)
+
+    #tinaco
+    Label(canvas1, image=tinaco, bg='white').place(x=0,y=100)
+    Label(canvas1, text="  Faltan x metros para llenarse  ", font=fontExample2, bg="#F781F3").place(x=40,y=530)
+
+    def llenandose():
+        Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
+        llenando=Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+
+    def detener():
+        Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
+        Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+        
+    #boton llenado
+    seLlena=Button(canvas1,text="Llenar el tinaco",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white", command=llenandose)#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
+    seLlena.config(width="15",height="2")#defino tamaño del botón
+    seLlena.place(x=0,y=430)#defino la ubicación del botón
+
+    #boton lleno
+    parar=Button(canvas1,text="Detener llenado",activebackground="#A9F5A9", font=fontExample2, bg="#642EFE", fg="white", command=detener)#Agrego un botón con texto y llamo al método ledON que envía un 1 al arduino.
+    parar.config(width="15",height="2")#defino tamaño del botón
+    parar.place(x=150,y=430)#defino la ubicación del botón
+
+        #--------------------------------------------------------
+
+        #temperatura 
+    Label(canvas1, image=termometro, bg='white').place(x=400,y=100)
+    fontExample3 = tkFont.Font(family="Arial", size=28, weight="bold") 
+    Label(canvas1,text="La temperatura es de: ", font=fontExample2, bg='white').place(x=545,y=100)
+    Label(canvas1,text="X °C", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=590,y=125)
+
+        #--------------------------------------------------------
+
+        #luminosidad
+    Label(canvas1, image=foco, bg='white').place(x=750,y=100)
+    Label(canvas1,text="La luminosidad es del: ", font=fontExample2, bg='white').place(x=1000,y=100)
+    Label(canvas1,text="X %", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125)    
+
+#boton ir a proyecto 
+fontPrincipal2 = tkFont.Font(family="Montserrat", size=12)
+ir=Button(canvas0,text="Vamos al proyecto",activebackground="#A4A4A4", font=fontPrincipal2, bg="black", fg="white", command=nuevaVentana)
+ir.config(width="20",height="2")
+ir.place(x=490,y=350)
 
 ventana.mainloop()
