@@ -95,9 +95,10 @@ def nuevaVentana():
     var = True
     while(var):
         lectura = puerto.readline().decode('ascii') # lo que leera del puerto (falta para llenarse)
-        if(lectura[1:2] == "d"):
-            distancia == float(lectura[2:7])
-             #tinaco
+        print(lectura)
+        if(lectura[0] == "d"):
+            distancia == float(lectura[1:])
+            #tinaco
             Label(canvas1, text="  Faltan "+str(distancia)+ "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
             if(distancia<=95.50):
                 Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
@@ -107,14 +108,14 @@ def nuevaVentana():
                 Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
                 Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
                 Label(canvas1, text="  Faltan " + str(distancia) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
-        elif(lectura[1:2] == "x"):
-            luz == float(lectura[2:7])
-            #luminosidad
-            Label(canvas1,text=str(luz)+"lux", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125) 
-        elif(lectura[1:2] == "t"):
-            temp == float(lectura[2:7])
-            #temperatura 
-            Label(canvas1,text=str(temp)+"°C", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=590,y=125)
+        # elif(lectura[:2] == "x"):
+        #     luz == float(lectura[2:])
+        #     #luminosidad
+        #     Label(canvas1,text=str(luz)+"lux", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125) 
+        # elif(lectura[1:2] == "t"):
+        #     temp == float(lectura[2:])
+        #     #temperatura 
+        #     Label(canvas1,text=str(temp)+"°C", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=590,y=125)
 
     puerto.close()
 

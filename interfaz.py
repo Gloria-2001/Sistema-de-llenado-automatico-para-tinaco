@@ -91,16 +91,28 @@ def nuevaVentana():
     print("Puerto abierto, listo para recibir datos")
     var = True
     while(var):
-        #-----------tinaco
-        cm_para_llenarse = float(puerto.readline().decode('ascii')) # lo que leera del puerto (falta para llenarse)
-        if(cm_para_llenarse<=95.50):
-            Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
-            Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
-            Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
-        elif(cm_para_llenarse==0.01):
-            Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
-            Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
-            Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+        lectura = puerto.readline().decode('ascii') # lo que leera del puerto (falta para llenarse)
+        #print(lectura)
+        if(lectura[0] == "d"):
+            distancia == float(lectura[1:])
+            #tinaco
+            Label(canvas1, text="  Faltan "+str(distancia)+ "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+            if(distancia<=95.50):
+                Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
+                Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+                Label(canvas1, text="  Faltan " + str(distancia) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+            elif(distancia==0.01):
+                Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
+                Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+                Label(canvas1, text="  Faltan " + str(distancia) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+            elif(lectura[0] == "x"):
+                luz == float(lectura[1:])
+                #luminosidad
+                Label(canvas1,text=str(luz)+"lux", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125) 
+            elif(lectura[0] == "t"):
+                temp == float(lectura[1:])
+                #temperatura 
+                Label(canvas1,text=str(temp)+"°C", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=590,y=125)
     puerto.close()
 
 #boton ir a proyecto 
