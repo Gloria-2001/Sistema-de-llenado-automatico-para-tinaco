@@ -33,7 +33,7 @@ void main(){
       distancia=(tiempo/2)*(0.0343);
       
       if(aux != distancia){
-         aux = distancia-3;
+         aux = distancia;
          printf("\r%f\n", aux);
          if(aux<=99.54 && aux>=4){
             set_pwm1_duty(1023);

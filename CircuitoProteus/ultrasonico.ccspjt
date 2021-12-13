@@ -1,0 +1,31 @@
+[PROJECT]
+Target=ultrasonico.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=ultrasonico.c
+[ultrasonico.c]
+Type=4
+[mru-list]
+1=ultrasonico.c
+
+[ProjectLog]
+Days=1
+D1=12-12-2021
+D1_L=4
+D1_L1=[60895]Stopped Editing.
+D1_L2=[63116]Started Editing.
+D1_L3=[63416]Stopped Editing.
+TotalEdit=1
+TotalDebug=0
+D1_E=1
+D1_D=0
+D1_L4=[66042]Project Closed.
+
+[Opened Files]
+1=ultrasonico.c
+2=
+[Units]
+Count=1
+1=ultrasonico (main)
