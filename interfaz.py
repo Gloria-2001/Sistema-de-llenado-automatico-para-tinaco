@@ -86,26 +86,26 @@ def nuevaVentana():
     Label(canvas1,text="X %", font=fontExample3, borderwidth=2, relief="solid", bg='white').place(x=1050,y=125)    
 
     #boton ir a proyecto 
-fontPrincipal2 = tkFont.Font(family="Montserrat", size=12)
-ir=Button(canvas0,text="Vamos al proyecto",activebackground="#A4A4A4", font=fontPrincipal2, bg="black", fg="white", command=nuevaVentana)
-ir.config(width="20",height="2")
-ir.place(x=490,y=350)
+    fontPrincipal2 = tkFont.Font(family="Montserrat", size=12)
+    ir=Button(canvas0,text="Vamos al proyecto",activebackground="#A4A4A4", font=fontPrincipal2, bg="black", fg="white", command=nuevaVentana)
+    ir.config(width="20",height="2")
+    ir.place(x=490,y=350)
 
-#puerto serial
-puerto = serial.Serial('COM2',9600)
-time.sleep(1)
-print("Puerto abierto, listo para recibir datos")
-var = True
-while(var):
-    #-----------tinaco
-    cm_para_llenarse = float(puerto.readline().decode('ascii')) # lo que leera del puerto (falta para llenarse)
-    if(cm_para_llenarse<=95.50):
-        Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
-        Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
-        Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
-    elif(cm_para_llenarse==0.01):
-        Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
-        Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
-        Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
-puerto.close()
+    #puerto serial
+    puerto = serial.Serial('COM2',9600)
+    time.sleep(1)
+    print("Puerto abierto, listo para recibir datos")
+    var = True
+    while(var):
+        #-----------tinaco
+        cm_para_llenarse = float(puerto.readline().decode('ascii')) # lo que leera del puerto (falta para llenarse)
+        if(cm_para_llenarse<=95.50):
+            Label(canvas1,image=tinacoLlenandose, bg='white').place(x=0,y=100)
+            Label(canvas1, text="Tinaco Llenandose...", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+            Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+        elif(cm_para_llenarse==0.01):
+            Label(canvas1,image=tinacoLleno, bg='white').place(x=0,y=100)
+            Label(canvas1, text="       Tinaco Lleno       ", font=fontExample2, borderwidth=2, relief="solid", bg='white').place(x=80,y=490)
+            Label(canvas1, text="  Faltan " + str(cm_para_llenarse) + "cm para llenarse  ", font=fontExample2, bg="#F781F3").place(x=35,y=530)
+    puerto.close()
 ventana.mainloop()
