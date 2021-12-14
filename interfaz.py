@@ -162,7 +162,7 @@ def nuevaVentana():
     
     temperatura = Label(canvas1, text="X °C", font=fontExample3, borderwidth=2, relief="solid", bg='white')
     temperatura.pack()
-    temperatura.place(x=590, y=125)
+    temperatura.place(x=545, y=125)
 
     # --------------------------------------------------------
 
@@ -177,9 +177,9 @@ def nuevaVentana():
 
     luminosidad = Label(canvas1, text="X lux", font=fontExample3, borderwidth=2, relief="solid", bg='white')
     luminosidad.pack()
-    luminosidad.place(x=1050, y=125)
+    luminosidad.place(x=1000, y=125)
 
-    m_hilo = threading.Thread(target=funcion, args=(canvas1, distancia, luminosidad, temperatura, fontExample2, fontExample3))
+    m_hilo = threading.Thread(target=funcion, args=(canvas1, distancia, luminosidad, temperatura, fontExample2, fontExample3),daemon=True)
     m_hilo.start()
 
 
@@ -192,7 +192,7 @@ ir.place(x=490, y=350)
 
 def doSomething():
     ventana.destroy()
-    sys.exit()
+    #sys.exit()
 
 
 ventana.protocol('WM_DELETE_WINDOW', doSomething)  # root is your root window
