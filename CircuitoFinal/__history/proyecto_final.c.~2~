@@ -1,0 +1,89 @@
+#include <16f877a.h>
+#device adc=10
+#include <stdio.h>
+#include <math.h>
+#fuses XT,NOWDT,NOPROTECT,NOLVP,PUT,BROWNOUT
+#use DELAY (CLOCK=4MHz)
+#use rs232 (baud=9600,parity=N,xmit=pin_c6,rcv=pin_c7,bits=8)
+
+float distancia,tiempo;
+float rtdData, temperatura;
+float ldrData, resistorVoltage,ldrVoltage, ldrResistance, ldrLux;
+float aux1 = -1.00;
+float aux2= -1.00;
+float aux3 = -1.00;
+float aux4=0.00; //resta para saber cuanta distancia queda por llenar 
+
+#define trigger pin_B1
+#define echo pin_B0
+
+int Timer2,Postcaler;
+
+void main(){
+   set_tris_a(0x03);
+   setup_adc_ports(all_analog);
+   setup_adc(adc_clock_internal);
+   setup_timer_1(T1_internal|T1_div_by_1);
+   Timer2=124;
+   Postcaler=1;
+   setup_timer_2(t2_div_by_4,Timer2,Postcaler);
+   setup_ccp1(ccp_pwm);
+   while(true){
+      
+      set_adc_channel(0);
+      delay_ms(50);
+      rtdData = read_adc();
+      
+      set_adc_channel(1);
+      delay_ms(50);
+      ldrData = read_adc();
+      
+      output_high(trigger);
+      delay_us(10);
+      output_low(trigger);
+      
+      while(!input(echo));
+      set_timer1(0);
+      
+      while(input(echo));
+      tiempo = get_timer1();
+      
+      if(aux1 != tiempo){
+         aux1 = tiempo;
+         distancia=(tiempo/2)*(0.0343);
+         aux4=distancia-3.00;
+   
+         printf("\rd%f\n", aux4);
+         if(distancia<=99.54 && distancia>=4){
+            set_pwm1_duty(1023);
+         }
+         else if(distancia>99.54){
+            set_pwm1_duty(0);
+            //printf("\rdvacio\n");
+         }
+         else{
+            set_pwm1_duty(0);
+            //printf("\rdlleno\n");
+         }
+      }
+      
+      if(aux2 != rtdData){
+         aux2 = rtdData;
+         temperatura = (rtdData*100.0)/1023.0;
+         printf("\rt%0.2f\n", temperatura);
+      }
+      
+      if(aux3 != ldrData){
+         aux3 = ldrData;
+         resistorVoltage = ldrData / 1023.0 * 5.0;
+         ldrVoltage = 5.0 - resistorVoltage;
+         ldrResistance = (resistorVoltage* 51000.0) /ldrVoltage;
+         ldrLux = 1.0/pow(ldrResistance/127410.00, 1/0.8582017);
+         printf(" \rx%0.2f\n",ldrLux);
+      }
+      
+   }
+}
+
+
+

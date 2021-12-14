@@ -1,0 +1,34 @@
+[PROJECT]
+Target=proyecto_final.hex
+Processor_Text=PIC16F877A
+CCSVersion=5.025
+Compiler=PCM
+[Target Data]
+FileList=proyecto_final.c
+[proyecto_final.c]
+Type=4
+[mru-list]
+1=proyecto_final.c
+
+[ProjectLog]
+Days=1
+D1=13-12-2021
+D1_L=7
+D1_L1=[72157]Project Closed.
+D1_L2=[73571]Project Opened.
+D1_L3=[73581]Project Closed.
+D1_L4=[73589]Project Opened.
+D1_L5=[73640]Started Editing.
+D1_L6=[74040]Stopped Editing.
+TotalEdit=2
+TotalDebug=0
+D1_E=2
+D1_D=0
+D1_L7=[74169]Project Closed.
+
+[Opened Files]
+1=proyecto_final.c
+2=
+[Units]
+Count=1
+1=proyecto_final (main)

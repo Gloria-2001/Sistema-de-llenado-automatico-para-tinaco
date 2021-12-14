@@ -57,11 +57,11 @@ void main(){
          }
          else if(distancia>99.54){
             set_pwm1_duty(0);
-            printf("\rdvacio\n");
+            //printf("\rdvacio\n");
          }
          else{
             set_pwm1_duty(0);
-            printf("\rdlleno\n");
+            //printf("\rdlleno\n");
          }
       }
       
