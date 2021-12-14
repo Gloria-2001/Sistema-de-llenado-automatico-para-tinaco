@@ -79,7 +79,7 @@ void main(){
          ldrVoltage = 5.0 - resistorVoltage;
          ldrResistance = (resistorVoltage* 51000.0) /ldrVoltage;
          ldrLux = 1.0/pow(ldrResistance/127410.00, 1/0.8582017);
-         printf("\rx%0.2f\n",ldrLux);
+         printf(" \rx%0.2f\n",ldrLux);
       }
       
    }

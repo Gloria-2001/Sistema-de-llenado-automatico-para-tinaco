@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.025, 19800               13-dic.-21 20:29
+CCS PCM C Compiler, Version 5.025, 63545               13-dic.-21 21:20
 
-               Filename:   C:\Users\vivis\Documents\ESCOM\QUINTO SEMESTRE ESCOM\Instrumentación\Sistema-de-llenado-automatico-para-tinaco\Proyecto Final\proyecto_final.lst
+               Filename:   C:\Users\argio\OneDrive - Instituto Politecnico Nacional\Documents\ESCOM\Quinto semestre\Instrumentación\Practicas\Sistema-de-llenado-automatico-para-tinaco\CircuitoFinal\proyecto_final.lst
 
-               ROM used:   4471 words (55%)
+               ROM used:   4467 words (55%)
                            Largest free fragment is 2048
                RAM used:   66 (18%) at main() level
                            132 (36%) worst case
@@ -7032,7 +7032,7 @@ CCS PCM C Compiler, Version 5.025, 19800               13-dic.-21 20:29
 128F:  CALL   038
 1290:  BSF    0A.4
 1291:  BTFSC  03.2
-1292:  GOTO   3BF
+1292:  GOTO   3BB
 ....................          aux3 = ldrData; 
 1293:  MOVF   35,W
 1294:  MOVWF  51
@@ -7307,45 +7307,41 @@ CCS PCM C Compiler, Version 5.025, 19800               13-dic.-21 20:29
 139D:  MOVWF  43
 139E:  MOVF   77,W
 139F:  MOVWF  42
-....................          printf(" \rx%0.2f\n",ldrLux); 
-13A0:  MOVLW  20
+....................          printf("\rx%0.2f\n",ldrLux); 
+13A0:  MOVLW  0D
 13A1:  BTFSS  0C.4
 13A2:  GOTO   3A1
 13A3:  MOVWF  19
-13A4:  MOVLW  0D
+13A4:  MOVLW  78
 13A5:  BTFSS  0C.4
 13A6:  GOTO   3A5
 13A7:  MOVWF  19
-13A8:  MOVLW  78
-13A9:  BTFSS  0C.4
-13AA:  GOTO   3A9
-13AB:  MOVWF  19
-13AC:  MOVLW  C9
-13AD:  MOVWF  04
-13AE:  MOVF   45,W
-13AF:  MOVWF  5C
-13B0:  MOVF   44,W
-13B1:  MOVWF  5B
-13B2:  MOVF   43,W
-13B3:  MOVWF  5A
-13B4:  MOVF   42,W
-13B5:  MOVWF  59
-13B6:  MOVLW  02
-13B7:  MOVWF  5D
-13B8:  BCF    0A.4
-13B9:  CALL   351
-13BA:  BSF    0A.4
-13BB:  MOVLW  0A
-13BC:  BTFSS  0C.4
-13BD:  GOTO   3BC
-13BE:  MOVWF  19
+13A8:  MOVLW  C9
+13A9:  MOVWF  04
+13AA:  MOVF   45,W
+13AB:  MOVWF  5C
+13AC:  MOVF   44,W
+13AD:  MOVWF  5B
+13AE:  MOVF   43,W
+13AF:  MOVWF  5A
+13B0:  MOVF   42,W
+13B1:  MOVWF  59
+13B2:  MOVLW  02
+13B3:  MOVWF  5D
+13B4:  BCF    0A.4
+13B5:  CALL   351
+13B6:  BSF    0A.4
+13B7:  MOVLW  0A
+13B8:  BTFSS  0C.4
+13B9:  GOTO   3B8
+13BA:  MOVWF  19
 ....................       } 
-13BF:  GOTO   05A
+13BB:  GOTO   05A
 ....................        
 ....................    } 
 .................... } 
 ....................  
-13C0:  SLEEP
+13BC:  SLEEP
 ....................  
 ....................  
 

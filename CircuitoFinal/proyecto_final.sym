@@ -164,16 +164,16 @@ ROM Allocation:
 00102A  @cinit2
 
 Project Directory:
-    C:\Users\vivis\Documents\ESCOM\QUINTO SEMESTRE ESCOM\Instrumentación\Sistema-de-llenado-automatico-para-tinaco\Proyecto Final\
+    C:\Users\argio\OneDrive - Instituto Politecnico Nacional\Documents\ESCOM\Quinto semestre\Instrumentación\Practicas\Sistema-de-llenado-automatico-para-tinaco\CircuitoFinal\
 
 Project Files:
-    proyecto_final.c                                        [13-dic.-21 20:29  CRC=05EDF323]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [18-abr.-14 15:56  CRC=4F277C97]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-jul.-07 12:24  CRC=4E4534F4]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-abr.-14 08:04  CRC=662B2714]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul.-10 08:27  CRC=897CEC6C]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-ene.-08 12:55  CRC=2D1F019F]
-    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sep.-12 10:35  CRC=546412C9]
+    proyecto_final.c                                        [13-dic.-21 21:19  CRC=05EDF323]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16f877a.h [18-abr.-14 15:56  CRC=4F277C97]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stdio.h [31-jul.-07 12:24  CRC=4E4534F4]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\string.h [10-abr.-14 08:04  CRC=662B2714]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\stddef.h [16-jul.-10 08:27  CRC=897CEC6C]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\ctype.h [03-ene.-08 12:55  CRC=2D1F019F]
+    ..\..\..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Drivers\math.h [28-sep.-12 10:35  CRC=546412C9]
 
 Source signature=68E9DF5F
 

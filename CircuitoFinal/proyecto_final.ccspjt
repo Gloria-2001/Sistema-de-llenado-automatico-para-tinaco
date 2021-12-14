@@ -13,7 +13,7 @@ Type=4
 [ProjectLog]
 Days=1
 D1=13-12-2021
-D1_L=7
+D1_L=10
 D1_L1=[72157]Project Closed.
 D1_L2=[73571]Project Opened.
 D1_L3=[73581]Project Closed.
@@ -25,6 +25,9 @@ TotalDebug=0
 D1_E=2
 D1_D=0
 D1_L7=[74169]Project Closed.
+D1_L8=[76784]Project Opened.
+D1_L9=[76792]Started Editing.
+D1_L10=[77092]Stopped Editing.
 
 [Opened Files]
 1=proyecto_final.c
